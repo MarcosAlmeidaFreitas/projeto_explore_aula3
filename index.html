@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crie seus eventos</title>
+  <!--Links de stilo e fontes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https: //fonts.googleapis.com/css2?family= Archivo :wght@600;700 & family= Poppins & display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>Crie e compartilhe seu evento.</h1>
+      <p>O primeiro passo, é preencher esse
+        formulário de inscrição.</p>
+    </header>
+    
+    <form>
+      <!--fildset é uma tag utilizada para agrupar um conjunto de campos-->
+      <fieldset>
+        <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos com o displayflex-->
+          <legend>Informações do Evento</legend>
+          
+          <div class="input-wrapper">
+            <label for="event-title">Titulo do Evento <span>(mínimo 8 caracteres)</span></label>
+            <input type="text" id="event-title"/>
+          </div>
+          
+          <div class="input-wrapper">
+            <label for="event-link">Link do Evento <span>(comece com https://)</span></label>
+            <input type="url" id="event-link"/>
+          </div>
+
+          <div class="input-wrapper">
+            <label for="event-whatsapp">Whatsapp para contato <span>(somente números)</span></label>
+            <input type="number" id="event-whatsapp"/>
+          </div>
+
+          <div class="input-wrapper">
+            <label for="event-info">Informações Extras <span>(somente números)</span></label>
+            <texarea id="event-info"></texarea>
+          </div>
+          
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>
