@@ -22,7 +22,8 @@
     <form>
       <!--fildset é uma tag utilizada para agrupar um conjunto de campos-->
       <fieldset>
-        <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos com o displayflex-->
+        <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos 
+          com o displayflex devido ao um bug com o chrome-->
           <legend>Informações do Evento</legend>
           
           <div class="input-wrapper">
@@ -41,12 +42,68 @@
           </div>
 
           <div class="input-wrapper">
-            <label for="event-info">Informações Extras <span>(somente números)</span></label>
-            <texarea id="event-info"></texarea>
+            <label for="event-info">Informações Extras</label>
+            <textarea id="event-info"></textarea>
           </div>
           
+          <div class="input-wrapper">
+            <label for="event-category">Categoria</label>
+            <select id="event-category">
+              <option value="live">Live</option>
+              <option value="podcast">Podcast</option>
+              <option value="mentorship">Mentoria</option>
+            </select>
+          </div>
+
         </div>
       </fieldset>
+
+      <fieldset>
+        <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos 
+          com o displayflex devido ao um bug com o chrome-->
+          <legend>Privacidade</legend>
+          
+          <div class="input-wrapper">
+            <label for="event-email">Email do administrador<span>(Digite um email válido)</span></label>
+            <input type="email" id="event-email"/>
+          </div>
+
+          <div class="input-wrapper">
+            <label for="event-password">Senha de acesso para os participantes<span>(Mínimo 8 caracteres)</span></label>
+            <input type="password" id="event-password"/>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="event-privaty"/>
+            <label for="event-privaty">Evento Privado</label>
+          </div>
+
+        </div>
+      </fieldset>   
+      
+      <fieldset>
+        <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos 
+          com o displayflex devido ao um bug com o chrome-->
+          <legend>Dia e hora</legend>
+
+          <div class="columns-3">
+            <div class="input-wrapper">
+              <label for="event-date">Data</label>
+              <input type="date" id="event-date"/>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="event-begin">Das</label>
+              <input type="time" id="event-begin"/>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="event-end">Até</label>
+              <input type="time" id="event-end"/>
+            </div>
+          </div>
+        </div>
+      </fieldset>    
     </form>
   </div>
 </body>
