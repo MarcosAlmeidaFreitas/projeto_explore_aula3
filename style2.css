@@ -241,6 +241,11 @@ footer .button{
   color: white;
 }
 
+/*configurando quando passar o mouse em cima do botão, o botão ficar mais escuro*/
 footer .button:hover{
   background-color: #1d9252;
+}
+
+input:invalid{
+  border: 1px solid #FF1010;
 }

@@ -19,7 +19,7 @@
         formulário de inscrição.</p>
     </header>
     
-    <form>
+    <form id="my-form">
       <!--fildset é uma tag utilizada para agrupar um conjunto de campos-->
       <fieldset>
         <div class="fieldset-wrapper"> <!--esse div foi criada para alinhar os elementos 
@@ -28,7 +28,7 @@
           
           <div class="input-wrapper">
             <label for="event-title">Titulo do Evento <span>(mínimo 8 caracteres)</span></label>
-            <input type="text" id="event-title"/>
+            <input type="text" id="event-title" required minlength="8"/>
           </div>
           
           <div class="input-wrapper">
@@ -70,7 +70,7 @@
 
           <div class="input-wrapper">
             <label for="event-password">Senha de acesso para os participantes<span>(Mínimo 8 caracteres)</span></label>
-            <input type="password" id="event-password"/>
+            <input type="password" id="event-password" required minlength="8"/>
           </div>
 
           <div class="checkbox-wrapper">
@@ -107,7 +107,9 @@
     </form>
 
     <footer>
-      <input class="button" type="submit" value="Salvar evento">
+      <!--Como está fora do formulário (no footter) e esse botão submete o formulário,
+         ele tem que receber a tag form passando o id do formulário.-->
+      <button class="button" form="my-form">Salvar evento</button>
     </footer>
 
   </div>
