@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-body, input, button, select, textarea{
+body, input, select, textarea{
   font-family: 'Poppins', sans-serif;
 }
 
@@ -16,13 +16,13 @@ body{
 /* a tag before que uma tag para se fazer elementos anterior ao body e o z-indez coloca ele 
 atras de tudo pq manda ele para a camada mais baixa*/
 body::before{
-  /*É necessario criar um objeto vazio para a criação da forma retangular*/
+  /*É necessario criar um objeto vazio primeiro para depois criar de forma retangular*/
   content: '';
   width: 100%;
   height: 368px;
   background-color: #121214;
 
-  /*É necessario criar o objeto definindo a sua posição*/
+  /*Sempre quando se cria um objeto é necessario definindo a sua posição para o objeto aparecer na tela*/
   position: absolute;
   top: 0;
   left: 0;
@@ -61,7 +61,7 @@ form{
   margin-top: 38px;
   background-color: #FAFAFC;
   min-height: 300px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   padding: 64px;
   
   /*utilizado para distanciar um fildset para outro*/
@@ -153,32 +153,46 @@ fieldset legend{
   background-position: right 24px top 50%;
 }
 
-/*Acessando a classe do dia e hora que necessita que fuja do pardrão para o padrão de 3 colunas*/
+/*Acessando a classe do dia e hora que necessita que fuja do padrão de 2 colunas para 3 colunas*/
 .columns-3{
   display: flex;
   gap: 20px;
 }
 
+/*Nessa tag estamos pedindo que dentro da classe .columns-3 queremos as tags div pelos sinal (>)
+e queremos a primeira div de todas dentro da div .columns-3 com a função nth-child()*/
 .columns-3 > div:nth-child(1){
   width: 100%;
 }
 
+/*Estamos pedindo para que a sua posição fique relativa ao checkbox input para ficar atrás do nosso novo check-box por causa da acessibilidade*/
 .checkbox-wrapper{
-  display: flex;
-  align-items: center;
-  margin-top: 24px;
+  position: relative;
 }
 
+/*Fazendo com que o checkbox do navegador fique atras do nosso estilizado.*/
 .checkbox-wrapper input{
-  display: none;
+  /*display: none; usado para sumir inicialmente agora quero ele atras no nosso que fizemos por causa da leitura de tela e mexer com o tab*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+
+  /*deixando o checkbox invisivel*/
+  opacity: 0;
 }
 
 .checkbox-wrapper label{
   display: flex;
+  align-items: center;
   margin: 0;
+  margin-top: 24px;
+  gap: 16px;
 }
 
-.checkbox-wrapper input{
+/*quando retiramos o input estamos criando um outro input dentro do label com a tag before(antes)*/
+.checkbox-wrapper label::before{
   content: '';
   width: 24px;
   height: 24px;
@@ -187,3 +201,46 @@ fieldset legend{
   border-radius: 8px;
 }
 
+.checkbox-wrapper input:checked + label::before{
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1805_14)'%3E%3Cpath d='M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z' fill='%2342D3FF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1805_14'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");  
+}
+
+.checkbox-wrapper input:focus + label::before{
+  outline: 1px solid black;
+}
+
+footer{
+  height: 136px;
+  background-color: #F0F0F4;
+
+  /*usado para acrescentar o preenchimento cinza atrás do botão*/
+  padding: 40px 64px;
+  /*usado para acrescentar uma distancia para o fim da página*/
+  margin-bottom: 100px;
+
+  /*Fazendo a borda de divisão entre o formulário e o footer. Como está sendo feita no footer tem que ser top para ficar em cima*/
+  border-top: 1px solid #D6D6D6;
+  /*Fazendo o arredondamento dos cantos inferiores*/
+  border-radius: 0 0 8px 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+footer .button{
+  height: 56px;
+  border-radius: 8px;
+  border: 0;
+  background-color: #04D361;
+
+  /*Config de letra dos botões*/
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: white;
+}
+
+footer .button:hover{
+  background-color: #1d9252;
+}
